@@ -1,9 +1,12 @@
+# LOSS_LABELS PART
+
 # Assuming we have a batch of 2 images. 
 # For the first image, we have 3 objects with class labels 1, 2, 3. 
 # For the second image, we have 2 objects with class labels 2, 3. 
 targets = [{"labels": torch.tensor([1, 2, 3])}, {"labels": torch.tensor([2, 3])}]
 
-# This is the output of the Hungarian algorithm. It's a list of tuples where each tuple corresponds to an image in the batch.
+# This is the output of the Hungarian algorithm. 
+# It's a list of tuples where each tuple corresponds to an image in the batch.
 # For each tuple, the first tensor are the indices of the queries in descending order of matching scores, 
 # and the second tensor are the indices of the ground truth boxes that these queries are matched to.
 indices = [(torch.tensor([0, 1, 2]), torch.tensor([1, 0, 2])), (torch.tensor([0, 1]), torch.tensor([1, 0]))]
